@@ -15,8 +15,8 @@ angular.module('laborDataVisApp')
         d3Service.d3().then(function (d3) {
 
           var margin = { top: 30, right: 20, bottom: 30, left: 50 },
-            width = 600 - margin.left - margin.right,
-            height = 270 - margin.top - margin.bottom;
+            width = 720 - margin.left - margin.right,
+            height = 540 - margin.top - margin.bottom;
 
           var parseDate = d3.timeParse("%Y%m%d");
 
@@ -82,6 +82,22 @@ angular.module('laborDataVisApp')
               .attr("class", "line1")
               .attr("d", line(dataTx));
 
+            svg.selectAll("circle")
+              .data(dataTx)
+              .enter()
+              .append("circle")
+              .attr("stroke", "#000")
+              .attr("fill", function (d, i) {
+                return "#fff";
+              })
+              .attr("cx", function (d) {
+                return x(d.date);
+              })
+              .attr("cy", function (d) {
+                return y(d.rate);
+              })
+              .attr("r", 4);
+
             svg.append("path")
               .attr("class", "line2")
               .attr("d", line(dataCt));
@@ -97,29 +113,6 @@ angular.module('laborDataVisApp')
               .attr("class", "y axis")
               .call(d3.axisLeft(y));
           });
-
-          // x.domain(d3.extent(scope.data, function (d) { return d.date; }));
-          // y.domain(d3.extent(scope.data, function (d) { return d.close; }));
-
-          // svg.append('g')
-          //   .attr('class', 'x axis')
-          //   .attr('transform', 'translate(0,' + height + ')')
-          //   .call(d3.axisBottom(x));
-
-          // svg.append('g')
-          //   .attr('class', 'y axis')
-          //   .call(d3.axisLeft(y))
-          //   .append('text')
-          //   .attr('transform', 'rotate(-90)')
-          //   .attr('y', 6)
-          //   .attr('dy', '.71em')
-          //   .style('text-anchor', 'end')
-          //   .text('Price ($)');
-
-          // svg.append('path')
-          //   .datum(scope.data)
-          //   .attr('class', 'line')
-          //   .attr('d', line);
         });
       }
     };
