@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc directive
- * @name angularD3App.directive:simpleLineChart
+ * @name laborDataVisApp.directive:simpleLineChart
  * @description
  * # simpleLineChart
  */
-angular.module('angularD3App')
+angular.module('laborDataVisApp')
   .directive('simpleLineChart', ['d3Service', function (d3Service) {
     return {
       restrict: 'EA',

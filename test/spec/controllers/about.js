@@ -3,7 +3,7 @@
 describe('Controller: AboutCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('angularD3App'));
+  beforeEach(module('laborDataVisApp'));
 
   var AboutCtrl,
     scope;

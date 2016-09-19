@@ -3,7 +3,7 @@
 describe('Service: d3Service', function () {
 
   // load the service's module
-  beforeEach(module('angularD3App'));
+  beforeEach(module('laborDataVisApp'));
 
   // instantiate service
   var d3Service;

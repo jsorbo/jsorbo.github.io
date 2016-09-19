@@ -1,5 +1,5 @@
 {
-  "name": "angular-d3",
+  "name": "labor-data-vis",
   "version": "0.0.0",
   "dependencies": {
     "angular": "^1.4.0",
@@ -16,7 +16,7 @@
     "d3": "^4.2.3"
   },
   "appPath": "app",
-  "moduleName": "angularD3App",
+  "moduleName": "laborDataVisApp",
   "overrides": {
     "bootstrap": {
       "main": [

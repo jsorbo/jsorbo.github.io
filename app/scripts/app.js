@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name angularD3App
+ * @name laborDataVisApp
  * @description
- * # angularD3App
+ * # laborDataVisApp
  *
  * Main module of the application.
  */
 angular
-  .module('angularD3App', [
+  .module('laborDataVisApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

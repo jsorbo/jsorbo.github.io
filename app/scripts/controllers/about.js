@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name angularD3App.controller:AboutCtrl
+ * @name laborDataVisApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the angularD3App
+ * Controller of the laborDataVisApp
  */
-angular.module('angularD3App')
+angular.module('laborDataVisApp')
   .controller('AboutCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

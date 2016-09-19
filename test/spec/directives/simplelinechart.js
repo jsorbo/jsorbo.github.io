@@ -3,7 +3,7 @@
 describe('Directive: simpleLineChart', function () {
 
   // load the directive's module
-  beforeEach(module('angularD3App'));
+  beforeEach(module('laborDataVisApp'));
 
   var element,
     scope;
