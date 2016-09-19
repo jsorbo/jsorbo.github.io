@@ -20,6 +20,10 @@ var yeoman = {
 
 // for sources
 var paths = {
+  data: [
+    yeoman.app + "/data/**/*.csv",
+    yeoman.app + "/data/**/*.tsv"
+  ],
   scripts: [yeoman.app + '/scripts/**/*.js'],
   absoluteScripts: [__dirname + '/' + yeoman.app + '/scripts/**/*.js'],
   styles: [yeoman.app + '/styles/**/*.css'],
@@ -53,13 +57,13 @@ var paths = {
 
 var lintScripts = lazypipe()
   .pipe($.jshint) // '.jshintrc'
-  .pipe($.jshint.reporter,'jshint-stylish' );
+  .pipe($.jshint.reporter, 'jshint-stylish');
 
 var styles = lazypipe()
   .pipe($.autoprefixer, {
-    browsers:['last 2 version']
+    browsers: ['last 2 version']
   })
-  .pipe(gulp.dest,yeoman.temp + '/styles');
+  .pipe(gulp.dest, yeoman.temp + '/styles');
 
 ///////////
 // Tasks //
@@ -83,26 +87,27 @@ gulp.task('start:client', ['start:server', 'styles', 'lint:scripts'], function (
   openURL('http://localhost:9000');
 });
 
-gulp.task('start:server', function() {
+gulp.task('start:server', function () {
   $.connect.server({
-    root:[yeoman.temp, yeoman.app],
-    livereload:true,
+    root: [yeoman.temp, yeoman.app],
+    livereload: true,
     port: 9000,
-    middleware:function(connect, opt){
-      return [['/bower_components', 
+    middleware: function (connect, opt) {
+      return [['/bower_components',
         connect["static"]('./bower_components')]]
     }
   });
 });
 
-gulp.task('start:server:test', function() {
+gulp.task('start:server:test', function () {
   $.connect.server({
     root: [yeoman.test, yeoman.app, yeoman.temp],
     livereload: true,
     port: 9001,
-    middleware:function(connect, opt){
+    middleware: function (connect, opt) {
       return [['/bower_components', connect["static"]('./bower_components')]
-    ]}
+      ]
+    }
   });
 });
 
@@ -134,16 +139,17 @@ gulp.task('serve', function (cb) {
     'watch', cb);
 });
 
-gulp.task('serve:prod', function() {
+gulp.task('serve:prod', function () {
   $.connect.server({
-    root:[yeoman.dist],
-    livereload:{
-      port:81
+    root: [yeoman.dist],
+    livereload: {
+      port: 81
     },
     port: 80,
-    middleware:function(connect, opt){
+    middleware: function (connect, opt) {
       return [['/bower_components', connect["static"]('./bower_components')]
-    ]}
+      ]
+    }
   });
 });
 
@@ -175,7 +181,7 @@ gulp.task('bower', function () {
       directory: /*yeoman.app +*/ 'bower_components',
       ignorePath: '..'
     }))
-  .pipe(gulp.dest(yeoman.temp));
+    .pipe(gulp.dest(yeoman.temp));
 });
 
 ///////////
@@ -191,13 +197,13 @@ gulp.task('client:build', ['bower', 'html', 'styles'], function () {
   var cssFilter = $.filter('**/*.css');
 
   return gulp.src(paths.views.bowermain)
-    .pipe($.useref({searchPath: [yeoman.app, yeoman.temp]}))
+    .pipe($.useref({ searchPath: [yeoman.app, yeoman.temp] }))
     .pipe(jsFilter)
     .pipe($.ngAnnotate())
     .pipe($.uglify())
     .pipe(jsFilter.restore())
     .pipe(cssFilter)
-    .pipe($.minifyCss({cache: true}))
+    .pipe($.minifyCss({ cache: true }))
     .pipe(cssFilter.restore())
     .pipe(gulp.dest(yeoman.dist));
 });
@@ -210,9 +216,9 @@ gulp.task('html', function () {
 gulp.task('images', function () {
   return gulp.src(yeoman.app + '/images/**/*')
     .pipe($.cache($.imagemin({
-        optimizationLevel: 5,
-        progressive: true,
-        interlaced: true
+      optimizationLevel: 5,
+      progressive: true,
+      interlaced: true
     })))
     .pipe(gulp.dest(yeoman.dist + '/images'));
 });
@@ -232,8 +238,13 @@ gulp.task('copy:favicon', function () {
     .pipe(gulp.dest(yeoman.dist));
 });
 
+gulp.task("copy:data", function () {
+  return gulp.src(paths.data)
+  .pipe(gulp.dest(yeoman.dist));
+});
+
 gulp.task('build', ['clean:dist', 'bower'], function () {
-  runSequence(['images', 'copy:extras', 'copy:fonts', 'copy:favicon', 'client:build']);
+  runSequence(['images', 'copy:extras', 'copy:fonts', 'copy:favicon', 'copy:data', 'client:build']);
 });
 
 gulp.task('default', ['build']);
