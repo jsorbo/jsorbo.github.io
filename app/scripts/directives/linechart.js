@@ -37,7 +37,7 @@ angular.module('laborDataVisApp')
             .append('g')
             .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-          d3.csv("unemployment.csv", function (error, data) {
+          d3.csv("data/unemployment.csv", function (error, data) {
             if (error) {
               console.log(error);
             }

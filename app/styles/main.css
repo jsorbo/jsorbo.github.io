@@ -100,3 +100,15 @@ body {
  stroke: steelblue;
  stroke-width: 1.5px;
 }
+
+path.line1 { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+path.line2 { 
+    stroke: green;
+    stroke-width: 2;
+    fill: none;
+}
