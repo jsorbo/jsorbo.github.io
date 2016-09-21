@@ -8,6 +8,7 @@ var lazypipe = require('lazypipe');
 var rimraf = require('rimraf');
 var wiredep = require('wiredep').stream;
 var runSequence = require('run-sequence');
+var taskListing = require('gulp-task-listing');
 var karmaServer = require('karma').Server;
 
 //app directory structor
@@ -247,4 +248,6 @@ gulp.task('build', ['clean:dist', 'bower'], function () {
   runSequence(['images', 'copy:extras', 'copy:fonts', 'copy:favicon', 'copy:data', 'client:build']);
 });
 
-gulp.task('default', ['build']);
+gulp.task('default', ['help']);
+
+gulp.task('help', taskListing);
