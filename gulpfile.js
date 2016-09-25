@@ -23,7 +23,8 @@ var yeoman = {
 var paths = {
   data: [
     yeoman.app + "/data/**/*.csv",
-    yeoman.app + "/data/**/*.tsv"
+    yeoman.app + "/data/**/*.tsv",
+    yeoman.app + "/data/**/*.json"
   ],
   scripts: [yeoman.app + '/scripts/**/*.js'],
   absoluteScripts: [__dirname + '/' + yeoman.app + '/scripts/**/*.js'],
