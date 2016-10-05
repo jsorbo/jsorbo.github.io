@@ -13,10 +13,9 @@ angular.module('laborDataVisApp')
       scope: {},
       link: function (scope, element, attrs) {
         d3Service.d3().then(function (d3) {
-
           var margin = { top: 30, right: 20, bottom: 30, left: 50 },
             width = 720 - margin.left - margin.right,
-            height = 540 - margin.top - margin.bottom;
+            height = 280 - margin.top - margin.bottom;
 
           var parseDate = d3.timeParse("%Y%m%d");
 
@@ -30,12 +29,12 @@ angular.module('laborDataVisApp')
             .x(function (d) { return x(d.date); })
             .y(function (d) { return y(d.rate); });
 
-          var svg = d3.select(element[0])
+          var svg = d3.select('#vis-column')
             .append('svg')
             .attr('width', width + margin.left + margin.right)
             .attr('height', height + margin.top + margin.bottom)
-            .append('g')
-            .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+            .append('g');
+            // .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
           d3.csv("data/unemployment.csv", function (error, data) {
             if (error) {
