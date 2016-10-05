@@ -1,6 +1,8 @@
 # Labor data visualization
 
-This project is my submission for CS 5331 Project 1.
+Click the screenshot to view the demo.
+
+[![ScreenShot](https://raw.githubusercontent.com/jsorbo/labor-data-vis/master/media/p1.jeff.sorbo.png)](https://youtu.be/bLNU7d88GBE)
 
 ## Visualization features
 
