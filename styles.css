@@ -1,0 +1,30 @@
+body {
+    font: 12px Arial;
+}
+
+#tools-container {
+    margin-top: 100px;
+}
+
+#checkbox-container, #slider-container {
+    margin: 50px;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+}
+
+div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 80px;					
+    height: 16px;					
+    padding: 2px;				
+    font: 12px sans-serif;
+    border: 0px;		
+    border-radius: 4px;			
+    pointer-events: none;			
+}
