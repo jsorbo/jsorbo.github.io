@@ -157,11 +157,11 @@ d3.json("data/us-states.json", function (json) {
                     }
                     div.transition()
                         .duration(200)
-                        .style("opacity", .9);
+                        .style("opacity", 1);
                     div.html(d[0].state) //  + ":<br/>" + d[0].rate + " on " + d[0].date
                         .style("left", (d3.event.pageX) + "px")
-                        .style("top", (d3.event.pageY - 28) + "px")
-                        .style("background", color(d[0].state));
+                        .style("top", (d3.event.pageY - 28) + "px");
+                        //.style("background", color(d[0].state));
                 })
                 .on("mouseout", function (d) {
                     if (allStates[d[0].state] == undefined || allStates[d[0].state].selected == false) {
