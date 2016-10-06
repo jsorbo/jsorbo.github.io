@@ -217,7 +217,7 @@ d3.json("data/us-states.json", function (json) {
                 .attr("x", 0 - (chartHeight / 2))
                 .attr("dy", "1em")
                 .style("text-anchor", "middle")
-                .text("Value");
+                .text("Unemployment Rate (%)");
         }
 
         // Draw the map
