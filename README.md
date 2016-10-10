@@ -45,7 +45,7 @@ on the U.S. map. This file was obtained from the U.S. map example posted on [Mic
 
 ## Open issues
 
-This application contains a number of open issues, [12 of which are posted on the repo Issues page.](https://github.com/jsorbo/jsorbo.github.io/issues) 
+This application contains a number of open issues, [several of which are posted on the repo Issues page.](https://github.com/jsorbo/jsorbo.github.io/issues) 
 Here are a few of the key open issues:
 
 * Allow user to zoom into a time interval.
