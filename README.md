@@ -26,17 +26,17 @@ The data contained in `data/unemployment.csv` include the monthly unemployment r
 U.S. states, in addition to the national rate, from January 1978 through July 2016. Here's a sample
 of the data contained in the file:
 
-    ```
-    date,state,rate
-    201601,Alabama,6.3
-    201601,Alaska,7.3
-    201601,Arizona,5.3
-    201601,Arkansas,4.7
-    ...
-    197812,Wisconsin,5.0
-    197812,Wyoming,3.1
-    197801,National,7.1
-    ```
+```
+date,state,rate
+201601,Alabama,6.3
+201601,Alaska,7.3
+201601,Arizona,5.3
+201601,Arkansas,4.7
+...
+197812,Wisconsin,5.0
+197812,Wyoming,3.1
+197801,National,7.1
+```
 
 ### U.S. States polygon data
 
@@ -59,19 +59,19 @@ Here are a few of the key open issues:
 
         Currently the map logic and the chart logic are closely intertwined; the data file reads are nested as follows:
 
-        ```javascript
-        // Read US states map coordinates
-        d3.json("data/us-states.json", function (json) {
-            // Read unemployment data
-            d3.csv("data/unemployment.csv", function (error, data) {
-                // Group and sort state unemployment data
-                // Function to draw chart
-                // ...
-            });
-            // Draw the map
+    ```javascript
+    // Read US states map coordinates
+    d3.json("data/us-states.json", function (json) {
+        // Read unemployment data
+        d3.csv("data/unemployment.csv", function (error, data) {
+            // Group and sort state unemployment data
+            // Function to draw chart
             // ...
         });
-        ```
+        // Draw the map
+        // ...
+    });
+    ```
 
     3. Highlight a state on the map when mousing over the time series.
 
