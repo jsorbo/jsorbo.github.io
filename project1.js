@@ -137,6 +137,7 @@ d3.json("data/us-states.json", function (json) {
                     return valueline(d);
                 });
 
+            // Enable tooltips on mouseover
             chartSvg.selectAll(".line2")
                 .data(dataArray)
                 .enter()
@@ -158,10 +159,9 @@ d3.json("data/us-states.json", function (json) {
                     div.transition()
                         .duration(200)
                         .style("opacity", 1);
-                    div.html(d[0].state) //  + ":<br/>" + d[0].rate + " on " + d[0].date
+                    div.html(d[0].state)
                         .style("left", (d3.event.pageX) + "px")
                         .style("top", (d3.event.pageY - 28) + "px");
-                        //.style("background", color(d[0].state));
                 })
                 .on("mouseout", function (d) {
                     if (allStates[d[0].state] == undefined || allStates[d[0].state].selected == false) {
@@ -187,6 +187,13 @@ d3.json("data/us-states.json", function (json) {
                         return color(d[0].state);
                     } else {
                         return "#fff";
+                    }
+                })
+                .attr("opacity", function (d) {
+                    if (allStates[d[0].state] != undefined && allStates[d[0].state].selected == true) {
+                        return 1;
+                    } else {
+                        return 0;
                     }
                 })
                 .text(function (d) {
