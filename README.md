@@ -73,6 +73,10 @@ d3.json("data/us-states.json", function (json) {
 });
 ```
 
+    This design makes the application difficult to modify. If the logic for the map and the chart were
+    completely separated, one could more easily add features such as highlighting states on mouseover
+    or zooming into time intervals.
+
 * Highlight a state on the map when mousing over the time series.
 
     This feature was not implemented. However, it should be trivial to add a feature where a
