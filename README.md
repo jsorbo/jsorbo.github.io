@@ -48,14 +48,14 @@ on the U.S. map. This file was obtained from the U.S. map example posted on [Mic
 This application contains a number of open issues, [12 of which are posted on the repo Issues page.](https://github.com/jsorbo/jsorbo.github.io/issues) 
 Here are a few of the key open issues:
 
-1. Allow user to zoom into a time interval.
+* Allow user to zoom into a time interval.
 
     Considerable work was completed towards the inclusion of a date range slider on the page. 
     The [noUiSlider](https://refreshless.com/nouislider/) library was added, and some configuration 
     was completed. However, this implementation is incomplete; the chart is not being redrawn upon
     movement of the sliders.
 
-2. Refactor for improved separation of concerns.
+* Refactor for improved separation of concerns.
 
     Currently the map logic and the chart logic are closely intertwined; the data file reads are nested as follows:
 
@@ -73,7 +73,7 @@ d3.json("data/us-states.json", function (json) {
 });
 ```
 
-3. Highlight a state on the map when mousing over the time series.
+* Highlight a state on the map when mousing over the time series.
 
     This feature was not implemented. However, it should be trivial to add a feature where a
     mouseover on a time series will trigger an animation on the map.
